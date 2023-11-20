@@ -5,13 +5,15 @@ export const UserContext = createContext()
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState()
 
-    const storeUser = (data) => {
-        localStorage.setItem('sockete', JSON.stringify(data))
-        setUser(data)
+    const storeUser = (token) => {
+        localStorage.setItem('sockete', JSON.stringify(token.userId))
+        setUser(token.userId)
     }
 
     const cleanUser = () => {
         localStorage.removeItem('sockete')
+        localStorage.removeItem('order_number')
+        localStorage.removeItem('cart')
         setUser(null)
     }
 

@@ -1,19 +1,21 @@
 import { createContext, useState } from "react";
 
+
 export const CartContext = createContext()
 
 export function CartProvider({ children }) {
 
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
 
-    const user = JSON.parse(localStorage.getItem('sockete')).idUser
+    const user_id = localStorage.getItem('sockete')
 
     const products = JSON.parse(localStorage.getItem('cart'))
 
     const orderNumber = parseInt(Math.random().toString(10).substr(2, 8));
+    localStorage.setItem('order_number', orderNumber)
 
     const order = {
-        user_id: user,
+        user_id: user_id,
         products: products,
         order_number: orderNumber
     }
@@ -31,10 +33,8 @@ export function CartProvider({ children }) {
 
         const response = await fetch(url, options)
         const data = await response.json()
-        console.log("Muestra esto: ", data)
-        localStorage.removeItem('cart')
-        return data
-
+        return data,
+            localStorage.removeItem('cart')
     }
 
     const addToCart = product => {

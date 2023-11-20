@@ -57,7 +57,7 @@ export default function CartNavigator({ count, className }) {
 
     const [showCart, setShowCart] = useState(false)
 
-    const { cart, clearCart, addToCart, removeFromCart, subtractCart, sendOrder } = useCart()
+    const { cart, clearCart, addToCart, removeFromCart, subtractCart } = useCart()
 
 
     return (
