@@ -1,10 +1,31 @@
+import { useEffect, useState } from "react"
 import Footer from "../components/Footer"
+import axios from "axios"
 
 function Payment() {
+
+    const [cart, setCart] = useState()
+    const cartId = 54
+
+    useEffect(() => {
+        const fetchCartDetails = async () => {
+            const response = await axios.get(`http://localhost:3000/carts/${cartId}`)
+            setCart(response.data.cart)
+        }
+        fetchCartDetails()
+    }, [cartId])
+
+
+
     return (
         <>
             <section className="bg-[url('./public/imagen/four-cordel-socks.jpeg')]">
                 <div className='w-4/6 mx-auto pt-20 pb-10'>
+                    {cart && (
+                        <div>
+                            {`${product_details.name}`}
+                        </div>
+                    )}
                     <h1 className='text-left text-3xl font-semibold mb-3 bg-sky-600 rounded-md p-4'>CHECKOUT PEDIDO</h1>
                     <div className='flex flex-col gap-4 bg-sky-100 p-8 rounded-lg shadow-lg'>
                         <div className="flex justify-between">

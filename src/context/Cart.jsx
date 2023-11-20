@@ -12,7 +12,6 @@ export function CartProvider({ children }) {
 
     const orderNumber = parseInt(Math.random().toString(10).substr(2, 8));
 
-
     const order = {
         user_id: user,
         products: products,
