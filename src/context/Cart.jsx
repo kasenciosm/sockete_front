@@ -3,14 +3,15 @@ import { createContext, useState } from "react";
 export const CartContext = createContext()
 
 export function CartProvider({ children }) {
+
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
 
     const user = JSON.parse(localStorage.getItem('sockete')).idUser
-    // console.log(first)
 
     const products = JSON.parse(localStorage.getItem('cart'))
 
     const orderNumber = parseInt(Math.random().toString(10).substr(2, 8));
+
 
     const order = {
         user_id: user,
@@ -30,10 +31,10 @@ export function CartProvider({ children }) {
         }
 
         const response = await fetch(url, options)
-        const data = response.json()
+        const data = await response.json()
         console.log("Muestra esto: ", data)
         localStorage.removeItem('cart')
-        return response.json()
+        return data
 
     }
 
