@@ -28,17 +28,17 @@ function CartItems({ image, price, name, quantity, addToCart, removeFromCart, su
                 </span>
                 <div className='flex  gap-6 items-center text-sm'>
                     <button
-                        onClick={addToCart}
+                        onClick={subtractCart}
                         className='bg-sky-300 py-1 px-2 font-bold'>
-                        +
+                        -
                     </button>
                     <span className='text-xs font-semibold'>
                         {quantity}
                     </span>
                     <button
-                        onClick={subtractCart}
+                        onClick={addToCart}
                         className='bg-sky-300 py-1 px-2 font-bold'>
-                        -
+                        +
                     </button>
                 </div>
                 <button

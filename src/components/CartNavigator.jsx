@@ -21,7 +21,7 @@ export function CartItem({ image, price, name, quantity, addToCart, removeFromCa
                 alt={name}
                 className='aspect-1 w-20'
             />
-            <div>
+            <div className='w-1/3'>
                 <strong>{name}</strong>
                 <p>Und.  S/.{price}</p>
             </div>
